@@ -4,24 +4,22 @@ using Game.Models.Enemies;
 
 namespace Game;
 
-public class Display
+public class Display : Messages
 {
     private List<string> display { get; set; } = new List<string>();
-    private int positionPlayer { get; set; } = 520;
-    private int positionEnemy { get; set; } = 40;
     private Player player = new Player();
-    private NormalEnemy enemy = new NormalEnemy();
-    private Messages messages = new Messages();
+    private List<NormalEnemy> enemies = new List<NormalEnemy>(){new NormalEnemy(12), new NormalEnemy(28),new NormalEnemy(37),
+        new NormalEnemy(54),new NormalEnemy(68),new NormalEnemy(79),new NormalEnemy(86),new NormalEnemy(89)};
 
     /// <summary>
     /// Populate list display with white space and player initial position
     /// </summary>
     /// <obs>
-    /// lines start in index: 0, 80, 160, 240, 320, 400, 480, 560, 640, 720
+    /// first line start in index 0 and stop in 100
     /// </obs>
-    public void InsertValues()
+    public void PopulateListDisplay()
     {
-        for (int i = 0; i < 720; i++)
+        for (int i = 0; i < 2000; i++)
         {
             this.display.Add(" ");
         }
@@ -29,42 +27,46 @@ public class Display
         setNewPlayerPosition(0, player.PlayerSprite);
     }
 
-    public void LogoAnimation()
-    {
-        Console.WriteLine(messages.Logo);
-    }
-
-    public void Instructions()
-    {
-        Console.WriteLine(messages.Instructions);
-    }
-
-    public void GameOver()
-    {
-        Console.WriteLine(messages.GameOver);
-    }
-
     /// <summary>
     /// show display
     /// </summary>
-    public ConsoleKeyInfo ShowFirstScenery()
+    public void StageI()
     {
-        int counter = 0;
-        foreach(var item in this.display)
+        Console.Clear();
+        PopulateListDisplay();
+
+        bool loop = true;
+        while(loop is true)
         {
-            if (counter == 80 || counter == 160 || counter == 240 || counter == 320 || counter == 400 || counter == 480 || counter == 560 || counter == 640 || counter == 720 || counter == 800)
+            int lineBreakCounter = 0;
+            foreach(var item in this.display)
             {
-                Console.WriteLine("");
+                if (lineBreakCounter % 100==0)
+                {
+                    Console.WriteLine("");
+                }
+
+                Console.Write(item);
+                lineBreakCounter++;
+            }
+            
+            var inputKey = Console.ReadKey(false);
+            Console.Clear();
+            MotionPlayer(inputKey.Key);
+
+            foreach (var item in enemies)
+            {
+                setNewEnemyPosition(item);
             }
 
-            Console.Write(item);
-            counter++;
+            if(PlayerSpriteInjuredCheck() == true)
+            {
+                Console.Clear();
+                GameOverAnimation();
+                Console.Beep();
+                break;
+            }
         }
-        
-        var inputKey = Console.ReadKey(true);
-        Console.Clear();
-
-        return inputKey;
     }
 
     /// <summary>
@@ -74,7 +76,7 @@ public class Display
     {
         foreach(var item in player.PlayerSprite)
         {
-            if(this.display[positionPlayer+(item.Key)] == " ")
+            if(this.display[player.Position+(item.Key)] == " ")
             {
                 return true;
             }
@@ -89,12 +91,12 @@ public class Display
     /// <param name="key"></param>
     public void MotionPlayer(ConsoleKey key)
     {
-        if(key == ConsoleKey.RightArrow && positionPlayer < 560-(player.LimiterRightSprite))
+        if(key == ConsoleKey.RightArrow && player.Position < 1800-(player.LimiterRightSprite))
         {
             setNewPlayerPosition(+1, player.PlayerSprite);
         }
 
-        if(key == ConsoleKey.LeftArrow && positionPlayer > 480+(player.LimiterLeftSprite))
+        if(key == ConsoleKey.LeftArrow && player.Position > 1700+(player.LimiterLeftSprite))
         {
             setNewPlayerPosition(-1, player.PlayerSprite);
         }
@@ -105,55 +107,50 @@ public class Display
         // clean player position
         foreach(var item in playerSprite)
         {
-            this.display[positionPlayer+(item.Key)] = " ";
+            this.display[player.Position+(item.Key)] = " ";
         }
 
-        positionPlayer = positionPlayer+(directionGuidance);
+        player.Position = player.Position+(directionGuidance);
         
         // set player position
         foreach(var item in playerSprite)
         {
-            this.display[positionPlayer+(item.Key)] = item.Value;
+            this.display[player.Position+(item.Key)] = item.Value;
         }
     }
-
 
     /// <summary>
     /// Update Enemy position
     /// </summary>
-    /// <param name="frameCount"></param>
-    public void MotionEnemy(int frameCount)
+    /// <param name="enemySprite"></param>
+    private void setNewEnemyPosition(NormalEnemy enemy)
     {
-        setNewEnemyPosition(frameCount, enemy.enemySprite);
-    }
+        var randon = new Random();
 
-    private void setNewEnemyPosition(int frameCount, Dictionary<int, string> enemySprite)
-    {
-        if (frameCount == 7)
+        if (enemy.Position >= 1780)
         {
-            foreach(var item in enemySprite)
+            foreach(var item in enemy.enemySprite)
             {
-                this.display[positionEnemy+(item.Key)] = " ";
+                this.display[enemy.Position+(item.Key)] = " ";
             }
 
-            var randon = new Random();
-            positionEnemy = randon.Next(0+(enemy.LimiterLeftSprite),80-(enemy.LimiterLeftSprite));
+            enemy.Position = randon.Next(0+(enemy.LimiterLeftSprite),100-(enemy.LimiterLeftSprite));
         }
         
-        if(frameCount > 0)
+        if(enemy.Position > 100)
         {
-            foreach(var item in enemySprite)
+            foreach(var item in enemy.enemySprite)
             {
-                this.display[positionEnemy+(item.Key)] = " ";
+                this.display[enemy.Position+(item.Key)] = " ";
             }
         }
 
-        positionEnemy = positionEnemy + 80;
+        enemy.Position = enemy.Position + randon.Next(99,102);
 
         // set enemy position
-        foreach(var item in enemySprite)
+        foreach(var item in enemy.enemySprite)
         {
-            this.display[positionEnemy+(item.Key)] = item.Value;
+            this.display[enemy.Position+(item.Key)] = item.Value;
         }
     }
 }

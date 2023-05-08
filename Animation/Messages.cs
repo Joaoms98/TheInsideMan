@@ -2,7 +2,7 @@ namespace Game.Animation
 {
     public class Messages
     {
-       public string Logo =  
+       private string logo =  
         @"
  ______  __                  ______                          __                                           
 /\__  _\/\ \                /\__  _\                  __    /\ \              /'\_/`\                     
@@ -16,7 +16,7 @@ namespace Game.Animation
                                          Press Enter To Start                                                                      
         ";
 
-       public string Instructions =  
+       private string instructions =  
         @"
                                                  Instructions:                      
                                         _______     _______     _______ 
@@ -29,7 +29,7 @@ namespace Game.Animation
                                         MoveLeft    NotMove    MoveRight                                 
         ";
 
-       public string GameOver =  
+       private string gameOver =  
         @"
                          ▄████  ▄▄▄      ███▄ ▄███▓▓█████     ▒█████   ██▒   █▓▓█████  ██▀███  
                         ██▒ ▀█▒▒████▄   ▓██▒▀█▀ ██▒▓█   ▀    ▒██▒  ██▒▓██░   █▒▓█   ▀ ▓██ ▒ ██▒
@@ -42,5 +42,26 @@ namespace Game.Animation
                              ░       ░  ░      ░      ░  ░       ░ ░        ░     ░  ░   ░     
                                                                            ░                    
         ";
+
+        public void LogoAnimation()
+        {
+            do
+            {
+               Console.WriteLine(logo);
+            }while(Console.ReadKey().Key != ConsoleKey.Enter);
+        }
+
+        public void InstructionsAnimation()
+        {
+            do
+            {
+                Console.WriteLine(instructions);
+            }while(Console.ReadKey().Key != ConsoleKey.Enter);
+        }
+
+        public void GameOverAnimation()
+        {
+            Console.WriteLine(gameOver);
+        }
     }
 }
