@@ -1,5 +1,5 @@
-namespace Game.Animation
-{
+namespace TheInsideManConsoleApp.Animations;
+
     public class Messages
     {
        private string logo =  
@@ -57,6 +57,7 @@ namespace Game.Animation
             {
                 Console.WriteLine(instructions);
             }while(Console.ReadKey().Key != ConsoleKey.Enter);
+            Console.Clear();
         }
 
         public void GameOverAnimation()
@@ -64,4 +65,3 @@ namespace Game.Animation
             Console.WriteLine(gameOver);
         }
     }
-}

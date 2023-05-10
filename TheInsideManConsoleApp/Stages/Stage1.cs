@@ -1,15 +1,17 @@
-using Game.Animation;
-using Game.Models;
-using Game.Models.Enemies;
+using TheInsideManConsoleApp.Animations;
+using TheInsideManConsoleApp.Entities;
+using TheInsideManConsoleApp.Entities.Enemies;
 
-namespace Game;
+namespace TheInsideManConsoleApp.Stages;
 
-public class Display : Messages
+public class Stage1 : Messages
 {
     private List<string> display { get; set; } = new List<string>();
     private Player player = new Player();
-    private List<NormalEnemy> enemies = new List<NormalEnemy>(){new NormalEnemy(12), new NormalEnemy(28),new NormalEnemy(37),
-        new NormalEnemy(54),new NormalEnemy(68),new NormalEnemy(79),new NormalEnemy(86),new NormalEnemy(89)};
+    private List<ET> enemies = new List<ET>(){
+        new ET(12), new ET(28),new ET(37),new ET(54),
+        new ET(68),new ET(79),new ET(86),new ET(89)
+    };
 
     /// <summary>
     /// Populate list display with white space and player initial position
@@ -30,7 +32,7 @@ public class Display : Messages
     /// <summary>
     /// show display
     /// </summary>
-    public void StageI()
+    public void Show()
     {
         Console.Clear();
         PopulateListDisplay();
@@ -123,9 +125,9 @@ public class Display : Messages
     /// Update Enemy position
     /// </summary>
     /// <param name="enemySprite"></param>
-    private void setNewEnemyPosition(NormalEnemy enemy)
+    private void setNewEnemyPosition(ET enemy)
     {
-        var randon = new Random();
+        var random = new Random();
 
         if (enemy.Position >= 1780)
         {
@@ -134,7 +136,7 @@ public class Display : Messages
                 this.display[enemy.Position+(item.Key)] = " ";
             }
 
-            enemy.Position = randon.Next(0+(enemy.LimiterLeftSprite),100-(enemy.LimiterLeftSprite));
+            enemy.Position = random.Next(0+(enemy.LimiterLeftSprite),100-(enemy.LimiterLeftSprite));
         }
         
         if(enemy.Position > 100)
@@ -145,7 +147,7 @@ public class Display : Messages
             }
         }
 
-        enemy.Position = enemy.Position + randon.Next(99,102);
+        enemy.Position = enemy.Position + random.Next(99,102);
 
         // set enemy position
         foreach(var item in enemy.enemySprite)
