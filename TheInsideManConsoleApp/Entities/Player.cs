@@ -1,8 +1,8 @@
-namespace Game.Models;
+namespace TheInsideManConsoleApp.Entities;
 
 public class Player
 {
-    public string Name { get; set; } = "Rafa Zé Chulapa";
+    public string Name { get; set; }
     public int Position { get; set; } = 1750;
     public int LimiterLeftSprite  { get; set; } = 1;
     public int LimiterRightSprite  { get; set; } = 2;

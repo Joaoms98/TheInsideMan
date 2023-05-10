@@ -1,10 +1,10 @@
-namespace Game.Models.Enemies;
+namespace TheInsideManConsoleApp.Entities.Enemies;
 
-public class NormalEnemy
+public class ET
 {
     public int Position { get; set; } = 50;
 
-    public NormalEnemy(int position)
+    public ET(int position)
     {
         this.Position = position;
     }
