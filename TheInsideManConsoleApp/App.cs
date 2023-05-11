@@ -11,7 +11,10 @@ public class App
 
         stageI.LogoAnimation();
         stageI.InstructionsAnimation();
-        stageI.Show();
+        stageI.Text1Animation();
+        stageI.Start();
+        stageII.Text2Animation();
         stageII.Start();
+        stageII.Text2Animation();
     }
 }

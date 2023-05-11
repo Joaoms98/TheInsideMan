@@ -10,8 +10,11 @@ public class Stage1 : Messages
     private Player player = new Player();
     private List<ET> enemies = new List<ET>(){
         new ET(12), new ET(28),new ET(37),new ET(54),
-        new ET(68),new ET(79),new ET(86),new ET(89)
+        new ET(68),new ET(79),new ET(86),new ET(89),
+        new ET(90),new ET(93),new ET(94),new ET(27),
     };
+
+    int WinTimeCount = 0;
 
     /// <summary>
     /// Populate list display with white space and player initial position
@@ -32,43 +35,71 @@ public class Stage1 : Messages
     /// <summary>
     /// show display
     /// </summary>
-    public void Show()
+    public void Start()
     {
-        Console.Clear();
         PopulateListDisplay();
 
         bool loop = true;
         while(loop is true)
-        {
-            int lineBreakCounter = 0;
-            foreach(var item in this.display)
-            {
-                if (lineBreakCounter % 100==0)
-                {
-                    Console.WriteLine("");
-                }
-
-                Console.Write(item);
-                lineBreakCounter++;
-            }
-            
+        {   
             var inputKey = Console.ReadKey(false);
-            Console.Clear();
-            MotionPlayer(inputKey.Key);
+            renderDisplay(inputKey.Key);
 
-            foreach (var item in enemies)
+            if( WinTimeAndGameOverCheck() == true)
             {
-                setNewEnemyPosition(item);
-            }
-
-            if(PlayerSpriteInjuredCheck() == true)
-            {
-                Console.Clear();
-                GameOverAnimation();
-                Console.Beep();
                 break;
             }
         }
+    }
+
+    /// <summary>
+    /// Populate list Display with white space
+    /// </summary>
+    /// <obs>
+    /// first line start in index 0 and stop in 100
+    /// </obs>
+    private void renderDisplay(ConsoleKey key)
+    {
+        Console.Clear();
+        MotionPlayer(key);
+
+        foreach (var item in enemies)
+        {
+            setNewEnemyPosition(item);
+        }
+
+        int lineBreakCounter = 0;
+        foreach(var item in this.display)
+        {
+            if (lineBreakCounter % 100==0)
+            {
+                Console.WriteLine("");
+            }
+
+            Console.Write(item);
+            lineBreakCounter++;
+        }
+
+        WinTimeCount = WinTimeCount +1;
+    }
+
+    /// <summary>
+    // check if player sprite is injured
+    /// </summary>
+    public bool WinTimeAndGameOverCheck()
+    {
+        if( WinTimeCount == 161)
+        {
+            Console.WriteLine("Vencedor");
+            return true;
+        }
+
+        if(PlayerSpriteInjuredCheck() == true)
+        {
+            return true;
+        }
+
+        return false;
     }
 
     /// <summary>
@@ -80,6 +111,8 @@ public class Stage1 : Messages
         {
             if(this.display[player.Position+(item.Key)] == " ")
             {
+                Console.Clear();
+                GameOverAnimation();
                 return true;
             }
         }

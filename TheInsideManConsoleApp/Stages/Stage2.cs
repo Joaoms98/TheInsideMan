@@ -40,11 +40,8 @@ public class Stage2 : Messages
     }
 
     /// <summary>
-    /// Populate list Display with white space
+    /// Populate list Display with white space and pointer indicator
     /// </summary>
-    /// <obs>
-    /// first line start in index 0 and stop in 100
-    /// </obs>
     private void populateListDisplay()
     {
         for (int i = 0; i < 2000; i++)
@@ -57,11 +54,8 @@ public class Stage2 : Messages
     }
 
     /// <summary>
-    /// Populate list Display with white space
+    /// shuffle the deck and deal the cards
     /// </summary>
-    /// <obs>
-    /// first line start in index 0 and stop in 100
-    /// </obs>
     private void distributeCards()
     {
         Random rand = new Random();
@@ -75,11 +69,8 @@ public class Stage2 : Messages
     }
 
     /// <summary>
-    /// Populate list Display with white space
+    /// Populate Display with player cards
     /// </summary>
-    /// <obs>
-    /// first line start in index 0 and stop in 100
-    /// </obs>
     private void PlayerHandDisplaySet(List<Card> cards)
     {
         for (int i = 0; i < cards.Count(); i++)
@@ -92,11 +83,8 @@ public class Stage2 : Messages
     }
 
     /// <summary>
-    /// Populate list Display with white space
+    /// Populate Display with enemy cards
     /// </summary>
-    /// <obs>
-    /// first line start in index 0 and stop in 100
-    /// </obs>
     private void EnemyHandDisplaySet(List<Card> cards)
     {
         for (int i = 0; i < cards.Count(); i++)
@@ -109,11 +97,8 @@ public class Stage2 : Messages
     }
 
     /// <summary>
-    /// Populate list Display with white space
+    /// Populate Display with scoreboard
     /// </summary>
-    /// <obs>
-    /// first line start in index 0 and stop in 100
-    /// </obs>
     private void ScoreboardDisplaySet(ScoreStage2 score)
     {
         foreach(var item in score.layout)
@@ -126,11 +111,8 @@ public class Stage2 : Messages
     }
 
     /// <summary>
-    /// Populate list Display with white space
+    /// Populate Display with table cards
     /// </summary>
-    /// <obs>
-    /// first line start in index 0 and stop in 100
-    /// </obs>
     private void tableHandDisplaySet(Card playerRoundCard, Card enemyRoundCard)
     {
         foreach(var item in enemyRoundCard.Sprite)
@@ -145,11 +127,8 @@ public class Stage2 : Messages
     }
 
     /// <summary>
-    /// Populate list Display with white space
+    /// show display
     /// </summary>
-    /// <obs>
-    /// first line start in index 0 and stop in 100
-    /// </obs>
     private void renderDisplay()
     {
         PlayerHandDisplaySet(PlayerHand);
@@ -169,12 +148,6 @@ public class Stage2 : Messages
         }
     }
 
-    /// <summary>
-    /// Populate list Display with white space
-    /// </summary>
-    /// <obs>
-    /// first line start in index 0 and stop in 100
-    /// </obs>
     private void indicatorArrowAction(ConsoleKey actionKey)
     {
         if(actionKey == ConsoleKey.RightArrow && PlayerHand.Count() == 3 && PointerPosition < 1394
@@ -206,12 +179,6 @@ public class Stage2 : Messages
         }
     }
 
-    /// <summary>
-    /// Populate list Display with white space
-    /// </summary>
-    /// <obs>
-    /// first line start in index 0 and stop in 100
-    /// </obs>
     private void PlayerCardDown()
     {
         cleanDisplay();
@@ -235,12 +202,6 @@ public class Stage2 : Messages
         Scoreboard.Round = Scoreboard.Round+1;
     }
 
-    /// <summary>
-    /// Populate list Display with white space
-    /// </summary>
-    /// <obs>
-    /// first line start in index 0 and stop in 100
-    /// </obs>
     private void CalculateWinRound(Card playerRoundCard, Card enemyRoundCard)
     {
         if(playerRoundCard.TrucoPower > enemyRoundCard.TrucoPower)
@@ -263,7 +224,7 @@ public class Stage2 : Messages
 
             if(Scoreboard.Round == 1)
             {
-                Scoreboard.PlayerPoints = Scoreboard.PlayerPoints + 1;
+                Scoreboard.EnemyPoints = Scoreboard.EnemyPoints + 1;
             }
         }
     }
@@ -291,11 +252,10 @@ public class Stage2 : Messages
 
     private bool VerifyWinnerOcurrence()
     {
-        if(Scoreboard.PlayerPoints == 12 || Scoreboard.EnemyPoints == 12)
+        if(Scoreboard.PlayerPoints > 12 || Scoreboard.EnemyPoints > 12)
         {
-            if(Scoreboard.PlayerPoints == 12)
+            if(Scoreboard.PlayerPoints > 12)
             {
-                Console.WriteLine("ganhou");
                 return true;
             }else{
                 this.GameOverAnimation();
