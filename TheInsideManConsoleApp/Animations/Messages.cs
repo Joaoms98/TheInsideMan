@@ -47,21 +47,43 @@ namespace TheInsideManConsoleApp.Animations;
        private string text1 =  
         @"
 ●▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬●
-     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ligula eu lectus lobortis 
-    condimentum. Aliquam nonummy auctor massa. Pellentesque habitant morbi tristique senectus et netus et 
-    malesuada fames ac turpis egestas. Nulla at risus. Quisque purus magna, auctor et, sagittis ac, posuere
-    eu, lectus. Nam mattis, felis ut adipiscing. 
+     Chegou a hora de me despir. Comecei tirando a roupa e desatrelando-me de todos os tabus sociais que 
+    ela escondia, tudo aquilo que eu pensava e não podia dizer, do meu 'bom dia' ao 'claro, por que não?'. 
+    Sem roupa, não havia mais vergonha. Não havia nada que meu corpo não mostrasse. Muitos ficaram chocados, 
+    enquanto outros assistiam maravilhados, esperando a próxima fala da peça de teatro que eles pensavam 
+    que eu estava fazendo.
+    Foi com alegria que saíram as primeiras palavras: 
+    Vejam todos! Não há mais o que esconder!
+
+
+    Desvie de todos os olhares perplexos para desbloquear a continuação.
 ●▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬●
         ";
 
        private string text2 =  
         @"
-●▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬●
-     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ligula eu lectus lobortis 
-    condimentum. Aliquam nonummy auctor massa. Pellentesque habitant morbi tristique senectus et netus et 
-    malesuada fames ac turpis egestas. Nulla at risus. Quisque purus magna, auctor et, sagittis ac, posuere
-    eu, lectus. Nam mattis, felis ut adipiscing. 
-●▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬●
+●▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬●
+     Após livrar-me dos olhares espantosos, senti que ainda havia mais a mostrar. Minha nudez não era 
+    suficiente para libertar-me de todas as amarras do mundo que me mantinham preso. Então, comecei a retirar 
+    a próxima camada. Cravei minhas unhas na minha própria pele, e com ela, retirei todos os valores e éticas 
+    que me definiam. Essas coisas deixaram de fazer sentido, para mim eram somente uma forma organizada dos 
+    afetos e convenções que aprisionavam minha verdadeira essência. 
+    
+     Não havia mais o bem ou o mal, somente as coisas e outras coisas que, por sua vez, interagiam com a 
+    primeira.
+    
+     Não fazia mais diferença se eu estava na terra, se ia pro céu ou se vinha do inferno. O que importava era 
+    simplesmente existir e viver sem limitações. Meu corpo nu e exposto, sem pele, sem vergonha, sem pudor, 
+    mostrava o meu lado mais humano e real possível. Todos que puderam me ver, viram uma pureza que há muito 
+    tempo havia sido esquecida, viram uma pessoa que aceita a si mesma e sua nudez como sua natureza.
+
+     E assim, deixei de ser apenas mais um corpo na multidão, para me tornar uma alma livre e verdadeira, que 
+    não se importa em expor suas cicatrizes, limitações ou a beleza que existe em sí sem se importar com o risco 
+    de ser julgado ou perder. E, como em um jogo de cartas, a vida traz reviravoltas inesperadas.
+
+    Vença o adversário para ter acesso a próxima parte. 
+    Dica: na segunda vez que as cartas são mostradas, o round vale 2 pontos. 
+●▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬●
         ";
 
         public void LogoAnimation()
